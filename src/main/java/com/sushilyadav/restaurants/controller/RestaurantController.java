@@ -33,7 +33,6 @@ public class RestaurantController {
 	@CrossOrigin
 	@RequestMapping(name="restaurants", method = RequestMethod.GET, params = {"name", "cuisines"})
 	public Page<Restaurant> getRestaurants(@RequestParam String name, @RequestParam List<String> cuisines, Pageable pageable) {
-		System.out.println("Name=" + name);
 		return restaurantRepository.findByNameContainingIgnoreCaseAndCuisinesContaining(name, cuisines, pageable);
 	}
 }
