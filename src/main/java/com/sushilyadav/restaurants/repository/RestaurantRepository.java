@@ -15,8 +15,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RestaurantRepository extends MongoRepository<Restaurant, String> {
 	public Page<Restaurant> findAll(Pageable pageable);
-	// @Query(value = "{ 'name' : ?0}")
-	// public Page<Restaurant> findByNameContaining(String name, Pageable pageable);
-	// public Page<Restaurant> findByCuisinesContaining(List<String> cuisines, Pageable pageable);
 	public Page<Restaurant> findByNameContainingIgnoreCaseAndCuisinesContaining(String name, List<String> cuisines, Pageable pageable);
 }

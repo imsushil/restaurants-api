@@ -30,24 +30,6 @@ public class RestaurantController {
 		return restaurantRepository.findAll(pageable);
 	}
 
-	/* @CrossOrigin
-	@RequestMapping(name="restaurants", method = RequestMethod.GET, params = {"name"})
-	public Page<Restaurant> getRestaurants(@RequestParam String name, Pageable pageable) {
-		System.out.println("name=" + name);
-		Page<Restaurant> list = restaurantRepository.findByNameContaining(name, pageable);
-		System.out.println("list of restaurants--->");
-		for(Restaurant res: list) {
-			System.out.println(res);
-		}
-		return list;
-	}
-
-	@CrossOrigin
-	@RequestMapping(name="restaurants", method = RequestMethod.GET, params = {"cuisines"})
-	public Page<Restaurant> getRestaurants(@RequestParam List<String> cuisines, Pageable pageable) {
-		return restaurantRepository.findByCuisinesContaining(cuisines, pageable);
-	} */
-
 	@CrossOrigin
 	@RequestMapping(name="restaurants", method = RequestMethod.GET, params = {"name", "cuisines"})
 	public Page<Restaurant> getRestaurants(@RequestParam String name, @RequestParam List<String> cuisines, Pageable pageable) {
