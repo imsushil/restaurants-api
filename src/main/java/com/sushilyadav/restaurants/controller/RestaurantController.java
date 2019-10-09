@@ -31,6 +31,18 @@ public class RestaurantController {
 	}
 
 	@CrossOrigin
+	@RequestMapping(name="restaurants", method = RequestMethod.GET, params = {"name"})
+	public Page<Restaurant> getRestaurants(@RequestParam String name, Pageable pageable) {
+		return restaurantRepository.findByNameContainingIgnoreCase(name, pageable);
+	}
+
+	@CrossOrigin
+	@RequestMapping(name="restaurants", method = RequestMethod.GET, params = {"cuisines"})
+	public Page<Restaurant> getRestaurants(@RequestParam List<String> cuisines, Pageable pageable) {
+		return restaurantRepository.findByCuisinesContaining(cuisines, pageable);
+	}
+
+	@CrossOrigin
 	@RequestMapping(name="restaurants", method = RequestMethod.GET, params = {"name", "cuisines"})
 	public Page<Restaurant> getRestaurants(@RequestParam String name, @RequestParam List<String> cuisines, Pageable pageable) {
 		return restaurantRepository.findByNameContainingIgnoreCaseAndCuisinesContaining(name, cuisines, pageable);

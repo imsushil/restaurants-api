@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.sushilyadav</groupId>
 	<artifactId>restaurants</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>restaurants</name>
 	<description>APIs for fetching restaurants' data</description>
 
